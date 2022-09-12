@@ -329,6 +329,11 @@ endif
 
 ifndef BOOTLOADER # ------------------------------------------------------------------------------ DON'T USE IN BOOTLOADER
 
+# Hardcoded to include the infxl library
+INCLUDE += -I$(ROOT)/libs/misc
+WRAPPERSOURCES += libs/misc/jswrap_infxl.c 
+SOURCES += libs/misc/infxl.c
+
 ifeq ($(USE_FILESYSTEM),1)
 DEFINES += -DUSE_FILESYSTEM
 INCLUDE += -I$(ROOT)/libs/filesystem
