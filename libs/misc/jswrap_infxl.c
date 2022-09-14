@@ -1,5 +1,5 @@
 #include "jswrap_infxl.h"
-#include "infXL.h"
+#include "infxl.h"
 
 // Let's define the JavaScript class that will contain our `model()` method. We'll call it `Hello`
 /*JSON{
@@ -21,3 +21,26 @@ JsVarInt jswrap_puck_infXL() {
   
   return ((JsVarInt)ret) ;
 }
+
+
+/*JSON{
+  "type" : "staticmethod",
+  "class" : "Infxl",
+  "name" : "insert",
+  "generate" : "jswrap_puck_infXL_insert",
+      "params" : [
+      ["index","int",""],
+      ["ax","int",""],
+      ["ay","int",""],
+      ["az","int",""]
+    ],
+  "return" : ["int", "0 if successful else some vague error code" ]
+}
+Calls the infXL model and returns its prediction.
+*/
+JsVarInt jswrap_puck_infXL_insert(JsVarInt index, JsVarInt ax, JsVarInt ay, JsVarInt az) {
+  int8_t ret = insert_infxl_measurement(index, ax, ay, az);
+
+  return ((JsVarInt)ret) ;
+}
+
