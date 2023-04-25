@@ -135,6 +135,19 @@ However for a new architecture there are a bunch of different files to modify.
 See [libs/README.md](libs/README.md) for a short tutorial on how to add your own libraries.
 
 
+### Compiling Espruino on MacOS
+
+* Clone this repository
+* Open the file `Makefile`:
+    * Change all commands `python` and `python2.7` to `python3`
+    * Change command `nproc` to `hw.logicalcpu`
+* Open the file `/make/common/NRF5X.make`:
+    * Change all commands `python` to `python3`
+* Install the C compiler with the command `brew install armmbed/formulae/arm-none-eabi-gcc`
+* Install the nrfutil package with the command `sudo -H pip install nrfutil`
+
+
+
 Using Espruino in your Projects
 ---------------------------
 
